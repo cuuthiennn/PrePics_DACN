@@ -75,7 +75,7 @@ function DetailGallery(){
                 <div className="flex items-center mt-4">
                     <FaComment />
                     <input type="text" placeholder="Thêm bình luận..." className="flex-grow ml-2 p-2 border border-border rounded-lg bg-input text-foreground" />
-                    <button className="bg-blue-500 text-primary-foreground hover:bg-primary/80 py-1 px-3 rounded ml-2">Đăng</button>
+                    <button className="bg-blue-500 text-primary-foreground hover:bg-primary/80 py-1 px-3 rounded ml-2 text-white">Đăng</button>
                 </div>
                 <div className='mt-3 ml-[150px]'>
                     <DropdownButton></DropdownButton>

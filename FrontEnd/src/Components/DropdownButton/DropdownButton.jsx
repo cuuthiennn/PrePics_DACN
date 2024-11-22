@@ -32,7 +32,7 @@ const DropdownButton = () => {
                     <input className='w-[45%] inline-block border-2 border-black'/>
                 </a></li>
             </ul>
-        </div>
+        </div>  
     );
 };
 

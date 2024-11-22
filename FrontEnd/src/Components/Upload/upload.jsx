@@ -1,56 +1,22 @@
-import React , {useState} from 'react'
+import React, { useState } from 'react';
+import FormUpload from '../Form/FormUpload';
+import Navbar from '../Navbar/Navbar';
 
 
-const inputClasses = 'border border-zinc-300 rounded-lg p-2 w-full'
-const labelClasses = 'block text-sm font-medium text-zinc-700'
-const buttonClasses = 'bg-blue-500 text-primary-foreground hover:bg-primary/80 rounded-lg p-2 w-full'
-
-function Upload(){
-    const [media, setMedia] = useState(null);
-    const [mediaType, setMediaType] = useState('');
-
-    const handleMediaChange = (event) => {
-        const file = event.target.files[0];
-        if (file) {
-            const mediaUrl = URL.createObjectURL(file);
-            setMedia(mediaUrl);
-            setMediaType(file.type.startsWith('video/') ? 'video' : 'image');
-        }
-    };
+const Upload = () => {
 
     return (
-        <>
-            <form className="bg-card p-6 rounded-lg shadow-md">
-                <div className="mb-4">
-                    <label className={labelClasses}>Tiêu đề</label>
-                    <input type="text"  placeholder="Nhập tiêu đề" className={inputClasses} />
-                </div>
-                <div className="mb-4">
-                    <label className={labelClasses}>Tiêu đê gắn thẻ </label>
-                    <input type="text" placeholder="Nhập tag" className={inputClasses} />
-                </div>
-                <div className="mb-4">
-                    <label className={labelClasses}>Địa điểm</label>
-                    <input type="text" placeholder="Nhập địa điểm" className={inputClasses} />
-                </div>
-                <div className="mb-4">
-                    <label className={labelClasses}>Chọn tệp</label>
-                    <input type="file" accept="image/*,video/*" onChange={handleMediaChange} />
-                    {media && (
-                        mediaType === 'video' ? (
-                            <video controls style={{ marginTop: '10px', maxWidth: '300px' }}>
-                                <source src={media} type={mediaType} />
-                            </video>
-                        ) : (
-                            <img src={media} alt="Preview" style={{ marginTop: '10px', maxWidth: '300px' }} />
-                        )
-                    )}
-                </div>
-                <button type="submit" className={buttonClasses}>
-                        Tải lên
-                </button>
-            </form>
-        </>
+        <div>
+        <Navbar></Navbar>   
+        <div className='flex flex-col items-center justify-center mt-[150px]'>
+        <h2 className='text-[40px] leading-[40px] tracking[-0.02em]'>Chia sẻ ảnh và video khiến cả thế giới yêu thích</h2>
+        <p className='text-[22px] font-medium leading-[28px] mt-4'>Chia sẻ ảnh và 50 video của bạn để giới thiệu bản thân với hàng triệu người dùng PrePics</p>
+        </div>
+        <FormUpload></FormUpload>
+        <div className='h-[300px]'></div>
+        </div>
+        
     );
-}
+};
+
 export default Upload;
